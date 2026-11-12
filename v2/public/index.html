@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GENE//CHAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="rain"></canvas>
+<div id="toast" hidden></div>
+
+<section id="boot">
+<pre id="blogo">   ___ ___ _  _ ___   _ _ _ ___ _    ___
+  / __| __| \| | __| | | | | _ \ |  |   \
+ | (_ | _|| .` | _|  | V V |   / |__| |) |
+  \___|___|_|\_|___|  \_/\_/|_|_\____|___/
+        T H E   T E C H   W A Z A R D</pre>
+<div id="bl"></div>
+<div id="bar"><i id="bi"></i></div>
+</section>
+
+<form id="login" hidden>
+<h2>ACCESS TERMINAL</h2>
+<label for="name">choose your handle</label>
+<input id="name" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="handle">
+<button>jack in</button>
+</form>
+
+<div id="app" hidden>
+<header><div id="logo">GENE//CHAT</div><div id="status"></div></header>
+<nav id="tabs">
+<button data-v="chat" class="on">chat</button><button data-v="status">status</button><button data-v="reels">reels</button><button data-v="call">call</button>
+</nav>
+
+<section id="v-chat" class="view on">
+<div id="contacts"><form id="addc"><input id="newc" autocomplete="off" autocapitalize="off" placeholder="add contact handle"><button>add</button></form><div id="chips"></div></div>
+<div id="threads"></div>
+<form id="chat"><button type="button" id="attach">file</button><input type="file" id="file" hidden><input id="msg" autocomplete="off" placeholder="message"><button>send</button></form>
+</section>
+
+<section id="v-status" class="view">
+<form class="post" id="pstatus"><input id="stext" autocomplete="off" placeholder="post a status (24h, contacts only)"><button type="button" id="satt">media</button><input type="file" id="sfile" accept="image/*,video/*" hidden><button>post</button></form>
+<div id="statuses" class="feed"></div>
+</section>
+
+<section id="v-reels" class="view">
+<form class="post" id="preel"><input id="rcap" autocomplete="off" placeholder="reel caption"><button type="button" id="ratt">video</button><input type="file" id="rfile" accept="video/*" hidden><button>post reel</button></form>
+<div id="reels" class="feed"></div>
+</section>
+
+<section id="v-call" class="view">
+<div id="callwho"></div>
+<div id="incoming" hidden><span id="inwho"></span><button id="acc">accept</button><button id="dec">decline</button></div>
+<div id="callbar"><button id="ca">audio</button><button id="cv">video</button><button id="cs">share screen</button><button id="ch">hang up</button></div>
+<div id="stage"><video id="remote" autoplay playsinline></video><video id="local" autoplay playsinline muted></video></div>
+</section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

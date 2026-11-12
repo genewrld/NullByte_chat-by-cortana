@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GENE//CHAT admin</title><link rel="stylesheet" href="admin.css"></head>
+<body>
+<header><b>GENE//CHAT admin</b><button id="out" hidden>log out</button></header>
+<form id="lg"><h2>Admin sign in</h2><input id="pw" type="password" placeholder="admin password" autocomplete="current-password"><button>Sign in</button><div id="err"></div></form>
+<main id="pn" hidden>
+<h3>Password reset requests</h3><div id="rq"></div>
+<h3>Accounts</h3><div id="us"></div>
+<p class="note">OTPs last 10 minutes. Send each one to the user yourself (WhatsApp, SMS or call) after checking it is really them.</p>
+</main>
+<script src="admin.js"></script></body></html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GENE//CHAT</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="toast" hidden></div>
+
+<section id="game" hidden><canvas id="gcv"></canvas></section>
+
+<section id="auth" hidden>
+<div class="card">
+<div class="logo">G</div><h1>GENE//CHAT</h1><p class="sub">Private, encrypted messaging</p>
+<form id="f-login">
+<input id="lu" placeholder="Username" autocomplete="username" autocapitalize="off">
+<input id="lp" type="password" placeholder="Password" autocomplete="current-password">
+<button>Log in</button>
+<p><a href="#" data-go="forgot">Forgot password?</a> &middot; <a href="#" data-go="reg">Create account</a></p>
+</form>
+<form id="f-reg" hidden>
+<input id="rn" placeholder="Your name" maxlength="40">
+<input id="ru" placeholder="Username (letters, numbers, _)" autocapitalize="off" maxlength="20">
+<input id="rc" placeholder="Phone or email for password recovery (optional)" maxlength="60">
+<input id="rp" type="password" placeholder="Password (8+ characters)" autocomplete="new-password">
+<button>Create account</button>
+<p><a href="#" data-go="login">I already have an account</a></p>
+</form>
+<form id="f-forgot" hidden>
+<input id="fu" placeholder="Your username" autocapitalize="off">
+<button>Request reset code</button>
+<p class="sub">The admin will check it is you and send you a code.</p>
+<p><a href="#" data-go="reset">I have a code</a> &middot; <a href="#" data-go="login">Back</a></p>
+</form>
+<form id="f-reset" hidden>
+<input id="xu" placeholder="Username" autocapitalize="off">
+<input id="xo" placeholder="6-digit code" inputmode="numeric" maxlength="6">
+<input id="xp" type="password" placeholder="New password (8+ characters)" autocomplete="new-password">
+<button>Set new password</button>
+<p><a href="#" data-go="login">Back</a></p>
+</form>
+<div id="amsg"></div>
+</div>
+</section>
+
+<div id="app" hidden>
+<aside id="side">
+<div class="top"><div class="av" id="meav"></div><b id="mename"></b><span class="sp"></span>
+<button class="ib" id="logout" title="Log out"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M10 17l1.4-1.4L8.8 13H20v-2H8.8l2.6-2.6L10 7l-5 5 5 5zM4 5h8V3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8v-2H4z"/></svg></button></div>
+<form id="findf"><input id="findq" placeholder="Find a username to start a chat" autocapitalize="off" autocomplete="off"></form>
+<div id="list"></div>
+</aside>
+<main id="conv">
+<div id="empty"><div class="logo">G</div><h2>GENE//CHAT</h2><p class="sub">Pick a chat, or search a username to start one.<br>Messages are end-to-end encrypted.</p></div>
+<div id="pane" hidden>
+<div class="top"><button class="ib" id="back"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></svg></button>
+<div class="av" id="pav"></div><div class="who" id="phead"><b id="pname"></b><small id="puser"></small></div></div>
+<div id="msgs"></div>
+<form id="chat"><button type="button" class="ib" id="attach" title="Attach"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M16.5 6v11.5a4 4 0 0 1-8 0V5a2.5 2.5 0 0 1 5 0v10.5a1 1 0 0 1-2 0V6H10v9.5a2.5 2.5 0 0 0 5 0V5a4 4 0 0 0-8 0v12.5a5.5 5.5 0 0 0 11 0V6h-1.5z"/></svg></button>
+<input type="file" id="file" hidden><input id="msg" placeholder="Type a message" autocomplete="off">
+<button class="send" title="Send"><svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button></form>
+</div>
+</main>
+</div>
+<script src="game.js"></script><script src="app.js"></script>
+</body></html>

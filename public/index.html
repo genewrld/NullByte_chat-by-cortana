@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Operation: Blackout</title>
+<link rel="stylesheet" href="hacker.css"><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="toast" hidden></div>
+
+<section id="game" hidden><canvas id="gcv"></canvas></section>
+
+<section id="auth" hidden>
+<div class="card">
+<img id="alogo" class="logo" alt="">
+<h1 class="brand big">NULLBYTE</h1><p class="sub">// private. encrypted. off the grid.</p>
+<form id="f-login">
+<input class="in" id="lu" placeholder="username" autocomplete="username" autocapitalize="off">
+<input class="in" id="lp" type="password" placeholder="password" autocomplete="current-password">
+<button class="btn">&gt; log in</button>
+<p><a href="#" data-go="forgot">forgot password?</a> &middot; <a href="#" data-go="reg">create account</a></p>
+</form>
+<form id="f-reg" hidden>
+<div id="regpick" class="pick"><div class="av big" id="ravp">+</div><small>add a profile photo (you can change it later)</small></div>
+<input class="in" id="rn" placeholder="your name" maxlength="40">
+<input class="in" id="ru" placeholder="username (letters, numbers, _)" autocapitalize="off" maxlength="20">
+<input class="in" id="rc" placeholder="phone or email for recovery (optional)" maxlength="60">
+<input class="in" id="rp" type="password" placeholder="password (8+ characters)" autocomplete="new-password">
+<button class="btn">&gt; create account</button>
+<p><a href="#" data-go="login">I already have an account</a></p>
+</form>
+<form id="f-forgot" hidden>
+<input class="in" id="fu" placeholder="your username" autocapitalize="off">
+<button class="btn">&gt; request reset code</button>
+<p class="sub">The admin checks it is you. The code then shows up right here as a notice.</p>
+<p><a href="#" data-go="reset">I have a code</a> &middot; <a href="#" data-go="login">back</a></p>
+</form>
+<form id="f-reset" hidden>
+<div id="rnote" class="notice" hidden></div>
+<input class="in" id="xu" placeholder="username" autocapitalize="off">
+<input class="in" id="xo" placeholder="6-digit code" inputmode="numeric" maxlength="6">
+<input class="in" id="xp" type="password" placeholder="new password (8+ characters)" autocomplete="new-password">
+<button class="btn">&gt; set new password</button>
+<p><a href="#" data-go="login">back</a></p>
+</form>
+<div id="amsg"></div>
+</div>
+</section>
+
+<div id="app" hidden>
+<div id="views">
+<section id="v-chats" class="view">
+<div class="top"><img id="tlogo" class="mini" alt=""><b class="brand">NULLBYTE</b><span class="sp"></span>
+<button class="ib" id="bell"><i data-ic="bell"></i><span class="badge" id="bellb" hidden></span></button></div>
+<div id="stories"></div>
+<form id="findf" class="pad"><input class="in" id="findq" placeholder="find @username to open a secure chat" autocapitalize="off" autocomplete="off"></form>
+<div id="list"></div>
+</section>
+
+<section id="v-reels" class="view" hidden>
+<div id="reelfeed"></div>
+<button class="fab" id="reelnew" title="New reel"><i data-ic="add"></i></button>
+<div class="rtabs"><button id="rt-all" class="on">reels</button><button id="rt-saved">saved</button></div>
+</section>
+
+<section id="v-comm" class="view" hidden>
+<div class="top"><i data-ic="group"></i><div class="who"><b class="brand">PUBLIC COMMUNITY</b><small id="ccount">open to everyone</small></div><span class="sp"></span>
+<button class="ib" id="cvoice" title="Join voice"><i data-ic="mic"></i></button><button class="ib" id="cvideo" title="Join video"><i data-ic="videocam"></i></button></div>
+<div id="cmsgs" class="msgs"></div>
+<form id="cform" class="composer"><button type="button" class="ib" id="cattach"><i data-ic="attach"></i></button>
+<input class="in" id="cmsg" placeholder="message everyone" autocomplete="off"><button class="send"><i data-ic="send"></i></button></form>
+</section>
+
+<section id="v-people" class="view" hidden>
+<div class="top"><b class="brand">PEOPLE</b><span class="sp"></span><small id="pcount"></small></div>
+<div class="pad"><input class="in" id="pq" placeholder="search everyone on NullByte" autocomplete="off"></div>
+<div id="plist"></div>
+</section>
+
+<section id="v-me" class="view" hidden>
+<div class="top"><b class="brand">MY ACCOUNT</b></div>
+<div id="meb"></div>
+</section>
+</div>
+<nav id="nav">
+<button data-v="chats" class="on"><i data-ic="chat"></i><span>chats</span></button>
+<button data-v="reels"><i data-ic="play"></i><span>reels</span></button>
+<button data-v="comm"><i data-ic="group"></i><span>community</span></button>
+<button data-v="people"><i data-ic="person"></i><span>people</span></button>
+<button data-v="me"><i data-ic="hood"></i><span>me</span></button>
+</nav>
+</div>
+
+<div id="dm" hidden>
+<div class="top"><button class="ib" id="back"><i data-ic="back"></i></button><div id="pav"></div>
+<div class="who" id="phead"><b id="pname"></b><small id="puser"></small></div><span class="sp"></span>
+<button class="ib" id="dvoice"><i data-ic="phone"></i></button><button class="ib" id="dvideo"><i data-ic="videocam"></i></button></div>
+<div id="msgs" class="msgs"></div>
+<form id="chat" class="composer"><button type="button" class="ib" id="attach"><i data-ic="attach"></i></button>
+<input type="file" id="file" hidden><input class="in" id="msg" placeholder="type a message" autocomplete="off">
+<button class="send"><i data-ic="send"></i></button></form>
+</div>
+
+<div id="callui" hidden></div>
+<button id="callpill" hidden>return to call</button>
+<div id="ring" hidden></div>
+<div id="storyv" hidden></div>
+<div id="editor" hidden></div>
+<div id="sheet" hidden><div class="sh"><div class="shh"><b id="sht"></b><button class="ib" id="shx"><i data-ic="close"></i></button></div><div id="shb"></div></div></div>
+
+<script src="boot.js"></script><script src="game.js"></script><script src="app.js"></script>
+</body></html>
